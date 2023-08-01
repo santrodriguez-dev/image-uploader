@@ -15,7 +15,7 @@ export async function POST (req: Request, res: NextApiResponse<any>) {
     const files = filesCreated.filter(itemName => itemName)
     return NextResponse.json({ message: 'Files saved succesfully', files })
   } catch (error) {
-    console.error('Error saving files', err)
+    console.error('Error saving files', error)
     return NextResponse.error()
   }
 }
