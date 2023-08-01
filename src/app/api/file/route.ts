@@ -26,10 +26,11 @@ async function saveFile (file: File) {
 
   return await fs.access(FOLDER_PATH_URL)
     .catch(() => {
-      console.log('creating folder')
+      console.log('1. creating folder...')
       return fs.mkdir(FOLDER_PATH_URL)
     })
     .then(() => {
+      console.log('2. Writing file...')
       const fileUniqueName = getUniqueName(file.name)
       fs.writeFile(path.join(FOLDER_PATH_URL, fileUniqueName), arrayBufferView)
       return fileUniqueName
