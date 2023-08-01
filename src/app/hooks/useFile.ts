@@ -1,5 +1,5 @@
 import { useReducer } from 'react'
-import type { Action, State } from '@/types'
+import type { Action, State } from '@/app/types'
 
 const initialState: State = {
   localFile: '',

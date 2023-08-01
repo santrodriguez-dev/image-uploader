@@ -20,10 +20,15 @@ export function FileSuccess ({ resetState, img }: { resetState: () => void, img:
       <div className="uploader-main-container__content-image">
         <img src={relativeFilePath} alt="image uploaded" className="uploader-main-container__image" />
       </div>
-      <div className="uploader-main-container__input-content mt-4 mb-6">
+      <div className="uploader-main-container__input-content mt-4 mb-1">
         <input ref={inputFileRef} type="text" className="uploader-main-container__input-file" disabled value={absoluteFilePath} />
         <button onClick={handleCopyLink} className="uploader-main-container__cta-1 uploader-main-container__cta-1--copy-link">Copy Link</button>
       </div>
+      <a
+        className="font-medium text-blue-600 dark:text-blue-500 hover:underline mb-4"
+        href={absoluteFilePath}
+        target="_blank"
+        rel="noreferrer">Open file</a>
       <button
         onClick={resetState}
         type="button"

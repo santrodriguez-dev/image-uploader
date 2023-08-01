@@ -28,6 +28,11 @@
   background-color: #F6F8FB;
 }
 
+.uploader-main-container__image-content-drag-over {
+  background-color: rgb(204, 247, 208);
+  border: 4px dashed #f1e60e;
+}
+
 .uploader-main-container__input-file {
   background-color: #F6F8FB;
   padding: 11px 8px;
