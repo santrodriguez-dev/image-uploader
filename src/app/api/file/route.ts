@@ -15,7 +15,7 @@ export async function POST (req: Request, res: NextApiResponse<any>) {
     const files = filesCreated.filter(itemName => itemName)
     return NextResponse.json({ message: 'Files saved succesfully', files })
   } catch (error) {
-    console.log(error)
+    console.error('Error saving files', err)
     return NextResponse.error()
   }
 }
@@ -33,10 +33,6 @@ async function saveFile (file: File) {
       const fileUniqueName = getUniqueName(file.name)
       fs.writeFile(path.join(FOLDER_PATH_URL, fileUniqueName), arrayBufferView)
       return fileUniqueName
-    })
-    .catch(err => {
-      console.log('Error saving files', err)
-      return null
     })
 }
 
