@@ -34,6 +34,9 @@ async function saveFile (file: File) {
       fs.writeFile(path.join(FOLDER_PATH_URL, fileUniqueName), arrayBufferView)
       return fileUniqueName
     })
+    .catch(err => {
+      throw new Error(err)
+    })
 }
 
 function getUniqueName (fileName: string) {
