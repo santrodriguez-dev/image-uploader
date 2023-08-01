@@ -4,7 +4,7 @@ import { type NextApiResponse } from 'next'
 import { type NextRequest, NextResponse } from 'next/server'
 import { FOLDER_PATH } from '../../constants'
 
-const FOLDER_PATH_URL = `public/${FOLDER_PATH}`
+const FOLDER_PATH_URL = path.join('public', FOLDER_PATH)
 
 export async function POST (req: Request, res: NextApiResponse<any>) {
   try {
@@ -13,7 +13,7 @@ export async function POST (req: Request, res: NextApiResponse<any>) {
     formData.forEach(file => filesToSave.push(saveFile(file as File)))
     const filesCreated = await Promise.all(filesToSave)
     const files = filesCreated.filter(itemName => itemName)
-    return NextResponse.json({ message: 'Files saves succesfully', files })
+    return NextResponse.json({ message: 'Files saved succesfully', files })
   } catch (error) {
     console.log(error)
     return NextResponse.error()
